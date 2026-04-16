@@ -1,4 +1,5 @@
-import { BookOpen, Building2, CalendarDays, LogOut, User } from "lucide-react";
+import { BookOpen, Building2, CalendarDays } from "lucide-react";
+import Profile from "./Profile";
 
 function Pill({ active, onClick, children }) {
   return (
@@ -44,25 +45,8 @@ export default function Navbar({ tab, setTab, user, onLogout }) {
             })}
           </div>
 
-          {/* User Info & Logout */}
-          {user && (
-            <div className="flex items-center gap-3 ml-4 pl-4 border-l border-slate-200">
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-                  <User className="h-4 w-4" />
-                </div>
-                <span className="font-medium text-slate-700">{user.name}</span>
-              </div>
-              <button
-                onClick={onLogout}
-                className="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
-                title="Logout"
-              >
-                <LogOut className="h-4 w-4" />
-                Logout
-              </button>
-            </div>
-          )}
+          {/* Profile Component */}
+          <Profile user={user} onLogout={onLogout} />
         </div>
       </div>
     </header>
